@@ -35,9 +35,40 @@ function getWeather(lat, long){
             locationReader.innerHTML = data.name +' , ' +data.sys.country;
             windReader.innerHTML = data.wind.speed +" km/h";
             descReader.innerHTML = data.weather[0].description;
+
+            let imageURL;
+            let forecast = data.weather[0].main.toLowerCase();
+            console.log(forecast, forecast.includes('clear'))
+            switch(true){
+              case forecast.includes('clear'):
+                imageURL ='http://1.bp.blogspot.com/-ZIgQPOdgFgE/VDjiG4MC3qI/AAAAAAAAAbw/Meer1Oz103U/s1600/Seaside-beach-view-clear-sky-sand-blue-sea-theme-wallpapers-download.jpg'
+                break;
+              case forecast.includes('sunny'):
+                imageURL = 'http://www.ijunoon.com/sw-store/images/timthumb.php?src=http://www.ijunoon.com/sw-store/images/wallpapers/ijunoon_Aston-Martin-DP-100-Vision-Gran-Turismo-Concept84317.jpg&q=100&w=1920&h=1080'
+                break;
+              case forecast.includes('fog'):
+                imageURL ='http://architectureimg.com/wp-content/uploads/2017/05/skyscrapers-hong-kong-foggy-city-fog-lights-night-dark-mist-wallpaper-for-desktop.jpg'
+                break;
+              case forecast.includes('cloud'):
+                imageURL='https://img00.deviantart.net/a191/i/2005/180/8/8/cloudy_seattle_by_logantscott.jpg'
+                break;
+              case forecast.includes('thunderstorm'):
+                imageURL='http://www.topraklamaraporu.org/wp-content/uploads/2016/12/paratoner.jpg'
+                break;
+              case forecast.includes('shower')|| forecast.includes('rain'):
+                imageURL='http://gzsihai.com/data/out/262/im-501019635.jpg'
+                break;
+              case forecast.includes('snow'):
+                imageURL='http://thewallpaper.co/wp-content/uploads/2017/09/storm-snow-download-mather-nature-winter-background-images-weather-sky-natureandroid-rain-christmas-clouds-river.jpg'
+                break;
+              default:
+                imageURL='http://getwallpapers.com/wallpaper/full/4/7/6/566735.jpg';
+            }
+            document.body.style.backgroundImage = "url('" +imageURL +"')";
           })
-          .catch( (err) =>err )
+          .catch( (err) =>err );
 }
+
 function convertTemp(){
   let tempReader = document.getElementById('temp-reader');
   let tempUnit = tempReader.getAttribute('data-temp-unit');
