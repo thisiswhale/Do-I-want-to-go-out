@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+#header{
+  text-align: center;
+  margin-top: 5%;
+}
+
+#main-box{
+margin: auto;
+width: 60%;
+text-align: center;
+}
+#temp-box{
+  display: inline-block;
+  width:20%;
+
+}
+#location-box, #wind-box, #desc-box{
+  display: inline-block;
+}
+#location-box, #wind-box, #desc-box,#temp-box{
+
+  border: 2px solid black;
+  /* background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.2); */
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5px;
+  margin-right:5px;
+  background-color: gray;
+}
+#secondary-box{
+
+}
+button{
+
+}
